@@ -1,4 +1,0 @@
-repository "Children Beating Massacre@TheJEmmettSpecial@cloud"
-  path "/"
-    br "/main"
-    co "/main"
