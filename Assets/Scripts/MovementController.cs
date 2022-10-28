@@ -6,9 +6,9 @@ public class MovementController : MonoBehaviour
 {
 
     CharacterController controller;
-    int gravityTicks = 150;
-    float movementPower = 5f;
-    float jumpPower = 1f;
+    public int gravityTicks = 150;
+    public float movementPower = 5f;
+    public float jumpPower = 2f;
 
 
     bool jumpHeld = false;
@@ -29,9 +29,9 @@ public class MovementController : MonoBehaviour
     {
         currentYVelo -= (jumpPower / gravityTicks) * movementPower;
 
-        if (controller.isGrounded) {
-            //currentYVelo = 0;
-        }    
+        if (controller.isGrounded && lastFrame < lastJumpFrame + 150) {
+            currentYVelo = 0;
+        }
 
         if (Input.GetKey(KeyCode.Space) && controller.isGrounded && lastFrame > lastJumpFrame + 150 && !jumpHeld) {
             currentYVelo = jumpPower*movementPower;
