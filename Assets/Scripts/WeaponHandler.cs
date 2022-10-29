@@ -4,25 +4,22 @@ using UnityEngine;
 
 public class WeaponHandler : MonoBehaviour
 {
-
-    float xOffset = 0.5f;
-    float yOffset = 0.2f;
-    float zOffset = -0.8f;
-
-    float xRotOffset = 0f;
-    float yRotOffset = -80f;
-    float zRotOffset = 0f;
-
     GameObject player;
+    Animation swingAnim;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
+        swingAnim = GetComponent<Animation>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.SetPositionAndRotation(player.transform.position + new Vector3(xOffset, yOffset, zOffset), player.transform.rotation*Quaternion.Euler(xRotOffset, yRotOffset, zRotOffset));
+        if (swingAnim.isPlaying) return;
+        if (Input.GetMouseButton(0)) {
+            Debug.Log("Swing!");
+            swingAnim.Play("Swing");
+        }
     }
 }

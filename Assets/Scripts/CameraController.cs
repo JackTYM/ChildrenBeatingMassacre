@@ -23,12 +23,14 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = player.transform.position + new Vector3(xOffset, yOffset, zOffset);
+        if (player != null) {
+            transform.position = player.transform.position + new Vector3(xOffset, yOffset, zOffset);
 
-        float mouseXMovement = Input.GetAxis("Mouse X");
-        float mouseYMovement = Input.GetAxis("Mouse Y");
+            float mouseXMovement = Input.GetAxis("Mouse X");
+            float mouseYMovement = Input.GetAxis("Mouse Y");
 
-        player.transform.eulerAngles = player.transform.eulerAngles - new Vector3(0, -mouseXMovement * xSensitivity, 0);
-        transform.eulerAngles = transform.eulerAngles - new Vector3(mouseYMovement * ySensitivity, -mouseXMovement * xSensitivity, 0);
+            player.transform.eulerAngles = player.transform.eulerAngles - new Vector3(0, -mouseXMovement * xSensitivity, 0);
+            transform.eulerAngles = transform.eulerAngles - new Vector3(mouseYMovement * ySensitivity, -mouseXMovement * xSensitivity, 0);
+        }
     }
 }
