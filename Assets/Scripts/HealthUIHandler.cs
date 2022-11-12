@@ -22,8 +22,9 @@ public class HealthUIHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sd.value = hc.health / hc.maxHealth * 100;
-        textBox.text = "" + hc.health;
-        
+        if (hc != null) {
+            sd.value = hc.health / hc.maxHealth * 100;
+            textBox.text = "" + hc.health;
+        }
     }
 }
