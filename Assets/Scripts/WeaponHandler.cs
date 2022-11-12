@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WeaponHandler : MonoBehaviour
 {
+    public bool swinging = false;
+
     GameObject player;
     Animation swingAnim;
     // Start is called before the first frame update
@@ -17,9 +19,11 @@ public class WeaponHandler : MonoBehaviour
     void Update()
     {
         if (swingAnim.isPlaying) return;
+        swinging = false;
         if (Input.GetMouseButton(0)) {
             Debug.Log("Swing!");
             swingAnim.Play("Swing");
+            swinging = true;
         }
     }
 }

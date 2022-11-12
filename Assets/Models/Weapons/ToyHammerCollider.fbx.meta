@@ -1,17 +1,15 @@
 fileFormatVersion: 2
-guid: c7edd0277c942eb45a5d281e8d0e3d00
+guid: 7fdb43f5bb139f541af8f7ebd56c314f
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
-      74: 3936550650637524798
-    second: Cylinder.001|Cylinder.001Action
-  externalObjects:
+      74: -8322483683077824971
+    second: HammerHead|Cylinder.001Action
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: HammerTexture
-    second: {fileID: 2100000, guid: 55d22ff6fc282104e89dbc2370218ab8, type: 2}
+      74: 9129929447558588885
+    second: HammerHead|Cylinder.001Action.001
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -43,15 +41,15 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.2
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
@@ -96,7 +94,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.2
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

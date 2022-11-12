@@ -6,6 +6,9 @@ ModelImporter:
   - first:
       74: 3936550650637524798
     second: Cylinder.001|Cylinder.001Action
+  - first:
+      74: -6672470038261620859
+    second: ToyHammer|Cylinder.001Action
   externalObjects:
   - first:
       type: UnityEngine:Material
