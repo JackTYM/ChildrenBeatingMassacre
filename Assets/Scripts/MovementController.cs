@@ -27,7 +27,9 @@ public class MovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentYVelo -= (jumpPower / gravityTicks) * movementPower;
+        if (!controller.isGrounded) {
+            currentYVelo -= (jumpPower / gravityTicks) * movementPower;
+        }
 
         if (controller.isGrounded && lastFrame < lastJumpFrame + 150) {
             currentYVelo = 0;
