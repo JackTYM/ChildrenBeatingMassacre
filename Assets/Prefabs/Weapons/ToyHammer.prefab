@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04ec4bd4ba3c59a4eb5cba8976f67dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanPrimaryAttack: 1
-  PrimaryCooldown: 5
-  PrimaryAnimation: Swing
+  canPrimaryAttack: 1
+  primaryCooldown: 1
+  primaryAnimation: Swing
   damage: 1
