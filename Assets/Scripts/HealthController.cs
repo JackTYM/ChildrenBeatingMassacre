@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using Pathfinding;
+using UnityEngine.UI;
+
 
 public class HealthController : MonoBehaviour
 {
@@ -11,11 +13,16 @@ public class HealthController : MonoBehaviour
     public float healPercent = 0.0f;
     public float health = 20f;
 
+    Slider sd;
+    Text textBox;
+    HealthController hc;
     Stopwatch sw = Stopwatch.StartNew();
     // Start is called before the first frame update
     void Start()
     {
-        
+        textBox = transform.Find("Health Number").GetComponent<Text>();
+        hc = GameObject.Find("Player").GetComponent<HealthController>();
+        sd = GetComponent<Slider>();
     }
 
     // Update is called once per frame
@@ -36,6 +43,11 @@ public class HealthController : MonoBehaviour
 
         //Round health to tenths place
         health = Mathf.Round(health*10)/10;
+
+        if (hc != null) {
+            sd.value = health / maxHealth * 100;
+            textBox.text = "" + health;
+        }
     }
 
     public void takeDamage(float damage) {

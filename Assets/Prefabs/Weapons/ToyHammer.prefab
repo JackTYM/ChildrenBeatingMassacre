@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4944360920767646449}
   - component: {fileID: 7167779275519376955}
   - component: {fileID: 8410618435194488104}
-  - component: {fileID: 8410618435194488111}
+  - component: {fileID: -4969482718366604300}
   m_Layer: 0
   m_Name: ToyHammer
   m_TagString: Untagged
@@ -101,7 +101,7 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &8410618435194488111
+--- !u!114 &-4969482718366604300
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,6 +110,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8681230575049285614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75ca1e7edfed3ac4d83936a232101315, type: 3}
+  m_Script: {fileID: 11500000, guid: 04ec4bd4ba3c59a4eb5cba8976f67dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanPrimaryAttack: 1
+  PrimaryCooldown: 5
+  PrimaryAnimation: Swing
+  damage: 1
