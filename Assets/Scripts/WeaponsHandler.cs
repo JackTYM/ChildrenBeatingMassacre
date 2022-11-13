@@ -9,12 +9,19 @@ public class WeaponsHandler : MonoBehaviour
     Animation primaryAnim;
     public string primaryAnimation;
     public float damage;
+
+    void Start()
+    {
+        primaryAnim = GetComponent<Animation>();
+    }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (canPrimaryAttack)
+            if (canPrimaryAttack && !primaryAnim.isPlaying)
             {
+                Debug.Log("Prim Attack");
                 PrimaryAttack();
             }
         }
@@ -22,17 +29,14 @@ public class WeaponsHandler : MonoBehaviour
 
     public void PrimaryAttack()
     {
-
         canPrimaryAttack = false;
-        primaryAnim = GetComponent<Animation>();
         primaryAnim.Play(primaryAnimation);
         StartCoroutine(ResetPrimaryAttack());
-
     }
 
     IEnumerator ResetPrimaryAttack()
     {
-        yield return new WaitForSeconds(primaryCooldown);
+        yield return new WaitForSeconds(primaryCooldown + primaryAnim.GetClip(primaryAnimation).length);
         canPrimaryAttack = true;
     }
 
@@ -49,6 +53,5 @@ public class WeaponsHandler : MonoBehaviour
                 }
             }
         }
-
     }
 }
