@@ -18,6 +18,8 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
     }
 
     // Update is called once per frame
