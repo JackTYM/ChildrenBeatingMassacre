@@ -11,13 +11,17 @@ public class EnemyHealth : MonoBehaviour
     public float cooldown = 1.3f;
     public float health = 0f;
     public float maxHealth;
+    public float killWorth = 1f;
+    public float regenPercent;
+
     Slider slider;
     Stopwatch sw = Stopwatch.StartNew();
-    public float regenPercent;
+    GameObject player;
     void Start()
     {
         health = maxHealth;
         slider = GetComponentInChildren<Slider>();
+        player = GameObject.Find("Player");
     }
     void Update()
     {
@@ -30,6 +34,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0)
         {
+            player.GetComponent<CurrencyHandler>().editCurrency(killWorth);
             Destroy(gameObject);
         }
     }

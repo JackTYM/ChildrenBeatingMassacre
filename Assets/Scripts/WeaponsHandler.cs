@@ -17,12 +17,14 @@ public class WeaponsHandler : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (canPrimaryAttack && !primaryAnim.isPlaying)
+        if (transform.parent.name == "Player" && transform.GetComponent<MeshRenderer>().enabled == true) {
+            if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("Prim Attack");
-                PrimaryAttack();
+                if (canPrimaryAttack && !primaryAnim.isPlaying)
+                {
+                    Debug.Log("Prim Attack");
+                    PrimaryAttack();
+                }
             }
         }
     }
