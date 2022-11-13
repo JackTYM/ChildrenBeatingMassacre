@@ -5,10 +5,10 @@ using UnityEngine;
 public class WeaponsHandler : MonoBehaviour
 {
     public bool canPrimaryAttack = true;
-    [SerializeField] public float primaryCooldown = 1.0f;
+    public float primaryCooldown = 1.0f;
     Animation primaryAnim;
-    [SerializeField] public string primaryAnimation;
-    [SerializeField] public float damage;
+    public string primaryAnimation;
+    public float damage;
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -46,10 +46,6 @@ public class WeaponsHandler : MonoBehaviour
                 if (enemyHealth.canDamage)
                 {
                     enemyHealth.Damage(damage);
-                    if (enemyHealth.health == 0)
-                    {
-                        Destroy(collider.gameObject);
-                    }
                 }
             }
         }
