@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7427622612966223315
+--- !u!1 &985804361331026322
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7809215113540597609}
-  - component: {fileID: 6624861366546987212}
-  - component: {fileID: 8940994472719485958}
-  - component: {fileID: 7770220878604711701}
-  - component: {fileID: 2622506291041456585}
-  - component: {fileID: 2264706292223324674}
+  - component: {fileID: 2025844350237299015}
+  - component: {fileID: 9029504133908626985}
+  - component: {fileID: 3032615737714591134}
+  - component: {fileID: 3352393930707059019}
+  - component: {fileID: 3489109342466567635}
+  - component: {fileID: 7127800632239583206}
   m_Layer: 0
-  m_Name: ToyHammer
+  m_Name: Bat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7809215113540597609
+--- !u!4 &2025844350237299015
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7427622612966223315}
-  m_LocalRotation: {x: -0, y: -0, z: 0.6427876, w: 0.7660445}
-  m_LocalPosition: {x: -5.68311, y: -4.0685987, z: -5.7771482}
-  m_LocalScale: {x: 100, y: 100, z: 250}
+  m_GameObject: {fileID: 985804361331026322}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -13.38, y: -1.5638195, z: -4.488148}
+  m_LocalScale: {x: 0.1, y: 0.10000001, z: 0.67499995}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 80}
---- !u!33 &6624861366546987212
+  m_LocalEulerAnglesHint: {x: 90, y: 9, z: 9}
+--- !u!33 &9029504133908626985
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7427622612966223315}
-  m_Mesh: {fileID: 4300000, guid: f5654fdf909db40448d8f244a4354665, type: 2}
---- !u!23 &8940994472719485958
+  m_GameObject: {fileID: 985804361331026322}
+  m_Mesh: {fileID: 4300000, guid: e660b1fd38510874db0f53dd8be470f8, type: 2}
+--- !u!23 &3032615737714591134
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7427622612966223315}
+  m_GameObject: {fileID: 985804361331026322}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 55d22ff6fc282104e89dbc2370218ab8, type: 2}
+  - {fileID: 2100000, guid: 75ed056e16b22c144a8305e3395ffbaa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,48 +86,48 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!111 &7770220878604711701
+--- !u!111 &3352393930707059019
 Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7427622612966223315}
+  m_GameObject: {fileID: 985804361331026322}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 38889e506041e0e4bb5830f968e148e4, type: 2}
+  m_Animation: {fileID: 7400000, guid: 264ba5e6020e2574ca467840df5f09bd, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: 38889e506041e0e4bb5830f968e148e4, type: 2}
+  - {fileID: 7400000, guid: 264ba5e6020e2574ca467840df5f09bd, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &2622506291041456585
+--- !u!114 &3489109342466567635
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7427622612966223315}
+  m_GameObject: {fileID: 985804361331026322}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04ec4bd4ba3c59a4eb5cba8976f67dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canPrimaryAttack: 1
-  primaryCooldown: 0.5
-  primaryAnimation: HammerSmash
-  damage: 1
---- !u!65 &2264706292223324674
+  primaryCooldown: 2
+  primaryAnimation: BatSwing
+  damage: 2
+--- !u!65 &7127800632239583206
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7427622612966223315}
+  m_GameObject: {fileID: 985804361331026322}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.01559856, y: 0.0040000007, z: 0.005882453}
-  m_Center: {x: 0.001369878, y: -0.00027468294, z: 0.0005309124}
+  m_Size: {x: 3.3000002, y: 3.28, z: 2.684852}
+  m_Center: {x: 0, y: -5.651878e-15, z: -0.38931182}

@@ -10,22 +10,30 @@ public class WeaponsHandler : MonoBehaviour
     public string primaryAnimation;
     public float damage;
 
+    InventoryHandler ih;
+
     void Start()
     {
         primaryAnim = GetComponent<Animation>();
+        ih = GameObject.Find("Player").GetComponent<InventoryHandler>();
     }
 
     void Update()
     {
-        if (transform.parent.name == "Player" && transform.GetComponent<MeshRenderer>().enabled == true) {
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (canPrimaryAttack && !primaryAnim.isPlaying)
+        if (ih.selectedObject == transform.gameObject) {
+            transform.GetComponent<MeshRenderer>().enabled = true;
+            if (transform.parent.name == "Player") {
+                if (Input.GetMouseButtonDown(0))
                 {
-                    Debug.Log("Prim Attack");
-                    PrimaryAttack();
+                    if (canPrimaryAttack && !primaryAnim.isPlaying)
+                    {
+                        Debug.Log("Prim Attack");
+                        PrimaryAttack();
+                    }
                 }
             }
+        } else {
+            transform.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 

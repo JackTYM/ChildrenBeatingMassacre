@@ -24,10 +24,10 @@ public class WeaponGiver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Physics.Raycast(player.transform.position, player.transform.forward, out var hit, 5f)) {
+        if (Physics.Raycast(player.transform.position, player.transform.forward, out var hit, 3f)) {
             var hitObj = hit.collider.gameObject;
 
-            if (hitObj.tag.Equals("Weapon Giver")) {
+            if (hitObj.Equals(transform.gameObject)) {
                 canvas.GetComponent<Canvas>().enabled = true;
                 if (!playerOwnsWeapon()) {
                     canvas.GetComponentInChildren<Text>().text = weapon.name + "\n" + cost + " Dead Child";
@@ -38,14 +38,7 @@ public class WeaponGiver : MonoBehaviour
 
                     if (Input.GetKeyDown(KeyCode.E)) {
                         if (player.GetComponent<CurrencyHandler>().editCurrency(cost*-1)) {
-
-                            GameObject newWeapon = GameObject.Instantiate(weapon);
-
-                            newWeapon.name = weapon.name;
-                            newWeapon.GetComponent<MeshRenderer>().enabled = true;
-                            newWeapon.transform.SetParent(player.transform);
-                            newWeapon.transform.localPosition = positionOffset;
-                            newWeapon.transform.eulerAngles = player.transform.eulerAngles + rotationOffset;
+                            player.GetComponent<InventoryHandler>().addItem(weapon, positionOffset, rotationOffset);
                         }
                     }
                 } else {
