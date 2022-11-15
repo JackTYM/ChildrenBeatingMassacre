@@ -34,7 +34,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            player.GetComponent<CurrencyHandler>().editCurrency(killWorth);
+            player.GetComponent<PlayerStatHandler>().editCurrency(killWorth);
             Destroy(gameObject);
         }
     }

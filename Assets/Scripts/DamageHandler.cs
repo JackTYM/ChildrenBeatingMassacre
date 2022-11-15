@@ -25,7 +25,7 @@ public class DamageHandler : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit hit) {
         if (hit.gameObject == victim && sw.ElapsedMilliseconds > millisecondsPerHit) {
-            victim.GetComponent<HealthController>().takeDamage(damage);
+            victim.GetComponent<PlayerStatHandler>().takeDamage(damage);
             sw = Stopwatch.StartNew();
         }
     }

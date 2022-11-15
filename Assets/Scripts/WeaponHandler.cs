@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponsHandler : MonoBehaviour
+public class WeaponHandler : MonoBehaviour
 {
     public bool canPrimaryAttack = true;
     public float primaryCooldown = 1.0f;
@@ -10,12 +10,14 @@ public class WeaponsHandler : MonoBehaviour
     public string primaryAnimation;
     public float damage;
 
+    PlayerStatHandler psh;
     InventoryHandler ih;
 
     void Start()
     {
         primaryAnim = GetComponent<Animation>();
         ih = GameObject.Find("Player").GetComponent<InventoryHandler>();
+        psh = GameObject.Find("Player").GetComponent<PlayerStatHandler>();
     }
 
     void Update()
@@ -59,7 +61,7 @@ public class WeaponsHandler : MonoBehaviour
                 EnemyHealth enemyHealth = collider.gameObject.GetComponent<EnemyHealth>();
                 if (enemyHealth.canDamage)
                 {
-                    enemyHealth.Damage(damage);
+                    enemyHealth.Damage(damage*psh.currentStrengthMultiplier);
                 }
             }
         }

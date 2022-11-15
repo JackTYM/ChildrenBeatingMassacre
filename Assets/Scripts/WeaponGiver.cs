@@ -37,7 +37,7 @@ public class WeaponGiver : MonoBehaviour
                     }
 
                     if (Input.GetKeyDown(KeyCode.E)) {
-                        if (player.GetComponent<CurrencyHandler>().editCurrency(cost*-1)) {
+                        if (player.GetComponent<PlayerStatHandler>().editCurrency(cost*-1)) {
                             player.GetComponent<InventoryHandler>().addItem(weapon, positionOffset, rotationOffset);
                         }
                     }

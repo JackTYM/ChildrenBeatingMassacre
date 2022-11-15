@@ -42,11 +42,11 @@ public class InventoryHandler : MonoBehaviour
         newWeapon.transform.localPosition = positionOffset;
         newWeapon.transform.eulerAngles = transform.eulerAngles + rotationOffset;
 
-        if (getAmountOfObjcts() <= inventorySlots) {
+        if (getAmountOfObjects() <= inventorySlots) {
             //Not full
-            currentInventory[getAmountOfObjcts()] = newWeapon;
+            currentInventory[getAmountOfObjects()] = newWeapon;
 
-            selectedSlot = getAmountOfObjcts()-1;
+            selectedSlot = getAmountOfObjects()-1;
             selectedObject = currentInventory[selectedSlot];
         } else {
             //Full
@@ -57,7 +57,7 @@ public class InventoryHandler : MonoBehaviour
         }
     }
 
-    int getAmountOfObjcts() {
+    public int getAmountOfObjects() {
         int objectAmount = 0;
 
         for (int i = 0; i < inventorySlots; i++) {

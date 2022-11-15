@@ -5,21 +5,26 @@ using UnityEngine;
 using Pathfinding;
 using UnityEngine.UI;
 
-
-public class HealthController : MonoBehaviour
+public class PlayerStatHandler : MonoBehaviour
 {
 
+    //Health
     public float maxHealth = 20f;
     public float healPercent = 0.0f;
     public float health = 20f;
+    
+    Stopwatch healTimer = Stopwatch.StartNew();
 
-    Slider sd;
-    HealthController hc;
-    Stopwatch sw = Stopwatch.StartNew();
+    //Currency
+    public float currentCurrency = 0f;
+    
+    //Power-Ups
+    public float currentStrengthMultiplier = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
-        //sd = GetComponent<Slider>();
+        
     }
 
     // Update is called once per frame
@@ -33,15 +38,15 @@ public class HealthController : MonoBehaviour
         }
 
         //Heal x per second
-        if (sw.ElapsedMilliseconds > 1000 && health + maxHealth*healPercent/100 < maxHealth) {
+        if (healTimer.ElapsedMilliseconds > 1000 && health + maxHealth*healPercent/100 < maxHealth) {
             health += maxHealth*healPercent/100;
-            sw = Stopwatch.StartNew();
+            healTimer = Stopwatch.StartNew();
         }
 
         //Round health to tenths place
         health = Mathf.Round(health*10)/10;
 
-        //sd.value = health / maxHealth * 100;
+
     }
 
     public void takeDamage(float damage) {
@@ -50,5 +55,15 @@ public class HealthController : MonoBehaviour
         } else {
             health = 0;
         }
+    }
+
+    public bool editCurrency(float amount) {
+        if (currentCurrency + amount < 0) {
+            return false;
+        }
+
+        currentCurrency += amount;
+
+        return true;
     }
 }
