@@ -46,7 +46,7 @@ public class PowerUpHandler : MonoBehaviour
                 case PowerUpType.Strength:
                     sw = Stopwatch.StartNew();
                     strengthOn = true;
-                    player.GetComponent<PlayerStatHandler>().currentStrengthMultiplier = 1.5f;
+                    player.GetComponent<PlayerStatHandler>().currentStrengthMultiplier = damagePercent/100f;
                     break;
             }
             GameObject.Destroy(transform.gameObject);
