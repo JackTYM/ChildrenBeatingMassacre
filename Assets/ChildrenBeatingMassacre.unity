@@ -3247,6 +3247,7 @@ MonoBehaviour:
   hammer: {fileID: 0}
   hammerVariant: 
   secondaryActive: 0
+  maxEnemies: 1
   weaponGroup: 
 --- !u!1001 &2024168099
 PrefabInstance:
@@ -4088,4 +4089,5 @@ MonoBehaviour:
   hammer: {fileID: 1854135552438367522, guid: b9a2e157a3cb918489671c7b0abbbfba, type: 3}
   hammerVariant: Toy Hammer
   secondaryActive: 0
+  maxEnemies: 1
   weaponGroup: Hammer
