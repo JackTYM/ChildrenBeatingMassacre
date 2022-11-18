@@ -4,7 +4,6 @@ using System.Diagnostics;
 using UnityEditor;
 using UnityEditor.VersionControl;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 
 public class WeaponHandler : MonoBehaviour
 {
@@ -25,7 +24,8 @@ public class WeaponHandler : MonoBehaviour
     PlayerStatHandler psh;
     InventoryHandler ih;
     GameObject player;
-
+    public int maxEnemies = 1; //set this to -1 for AOE
+    int count = 0;
     //for secondary weapons
     public string weaponGroup;
 
@@ -96,6 +96,7 @@ public class WeaponHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(primaryCooldown + primaryAnim.GetClip(primaryAnimation).length);
         canPrimaryAttack = true;
+        count = 0;
     }
     IEnumerator ResetSecondaryAttack(float duration)
     {
@@ -113,7 +114,7 @@ public class WeaponHandler : MonoBehaviour
 
     }
     void OnTriggerEnter(Collider collider)
-    {
+    {   
         if (primaryAnim.isPlaying)
         {
             if (collider.gameObject.tag == "Enemy")
@@ -121,7 +122,15 @@ public class WeaponHandler : MonoBehaviour
                 EnemyHealth enemyHealth = collider.gameObject.GetComponent<EnemyHealth>();
                 if (enemyHealth.canDamage)
                 {
-                    enemyHealth.Damage(damage * psh.currentStrengthMultiplier);
+                    if (count < maxEnemies && maxEnemies != -1)
+                    {
+                        enemyHealth.Damage(damage * psh.currentStrengthMultiplier);
+                        count++;
+                    }
+                    else if (maxEnemies == -1)
+                    {
+                        enemyHealth.Damage(damage * psh.currentStrengthMultiplier);
+                    }
                 }
             }
         }
