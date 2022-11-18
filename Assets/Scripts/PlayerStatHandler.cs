@@ -15,6 +15,10 @@ public class PlayerStatHandler : MonoBehaviour
     
     Stopwatch healTimer = Stopwatch.StartNew();
 
+    //Rage
+    public float maxRage = 100f;
+    public float currentRage;
+
     //Currency
     public float currentCurrency = 0f;
     
@@ -43,6 +47,7 @@ public class PlayerStatHandler : MonoBehaviour
             healTimer = Stopwatch.StartNew();
         }
 
+
         //Round health to tenths place
         health = Mathf.Round(health*10)/10;
 
@@ -65,5 +70,16 @@ public class PlayerStatHandler : MonoBehaviour
         currentCurrency += amount;
 
         return true;
+    }
+    
+    public void addRage(float rageAmount)
+    {
+        currentRage += rageAmount;
+
+        if (currentRage > maxRage)
+        {
+            currentRage = maxRage;
+        }
+
     }
 }

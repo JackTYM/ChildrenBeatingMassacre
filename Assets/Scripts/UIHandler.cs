@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http.Headers;
 using TMPro;
 using UnityEngine;
@@ -12,10 +13,14 @@ public class UIHandler : MonoBehaviour
     Text currencyTextBox;
     PlayerStatHandler psh;
 
+
     public float inventoryRotationSpeed = 5f;
     InventoryHandler inventory;
     GameObject[] pInventory;
     TextMeshProUGUI weaponText;
+    Stopwatch rageTimer = Stopwatch.StartNew();
+    public float ragePercent = 0.0f;
+    Slider rageSlider;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +29,7 @@ public class UIHandler : MonoBehaviour
         currencyTextBox = transform.Find("Currency Container").Find("Currency Amount").GetComponent<Text>();
         psh = GameObject.Find("Player").GetComponent<PlayerStatHandler>();
         sd = transform.Find("Health Container").GetComponent<Slider>();
-
+        rageSlider = transform.Find("Rage Container").Find("Rage Bar").GetComponent<Slider>();
         inventory = GameObject.Find("Player").GetComponent<InventoryHandler>();
         weaponText = transform.GetChild(2).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
     }
@@ -36,7 +41,25 @@ public class UIHandler : MonoBehaviour
             sd.value = psh.health / psh.maxHealth * 100;
             healthTextBox.text = psh.health.ToString();
             currencyTextBox.text = psh.currentCurrency.ToString();
+            rageSlider.maxValue = psh.maxRage;
+            rageSlider.value = psh.currentRage;
         }
+
+        //Lose rage every second
+        if (rageTimer.ElapsedMilliseconds > 5)
+        {
+            if (psh.currentRage - psh.maxRage * ((ragePercent/200)/ 100) >= 0)
+            {
+                psh.currentRage -= psh.maxRage * (ragePercent/200) / 100;
+            }
+            else if (psh.currentRage - psh.maxRage * ((ragePercent/200) / 100) < 0)
+            {
+                psh.currentRage = 0;
+            }
+            rageTimer = Stopwatch.StartNew();
+        }
+
+        //inventory UI management
 
         if (inventory.selectedObject != null) {
             weaponText.SetText("Current Weapon: " + inventory.selectedObject.name);
