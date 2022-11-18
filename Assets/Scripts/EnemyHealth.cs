@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
     public float cooldown = 1.3f;
     public float health = 0f;
     public float maxHealth;
+    public float rageValue = 50;
     public float killWorth = 1f;
     public float regenPercent;
 
@@ -35,6 +36,7 @@ public class EnemyHealth : MonoBehaviour
         if (health <= 0)
         {
             player.GetComponent<PlayerStatHandler>().editCurrency(killWorth);
+            player.GetComponent<PlayerStatHandler>().addRage(rageValue);
             Destroy(gameObject);
         }
     }

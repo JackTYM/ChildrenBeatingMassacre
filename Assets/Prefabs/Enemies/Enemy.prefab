@@ -248,8 +248,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canDamage: 1
+  cooldown: 1.3
   health: 3
   maxHealth: 3
+  rageValue: 10
+  killWorth: 1
+  regenPercent: 0
 --- !u!1 &4580920014788972919
 GameObject:
   m_ObjectHideFlags: 0
